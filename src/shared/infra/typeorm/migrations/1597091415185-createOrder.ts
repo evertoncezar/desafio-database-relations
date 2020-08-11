@@ -68,7 +68,7 @@ export class createOrder1597091415185 implements MigrationInterface {
           },
           {
             name: 'quantity',
-            type: 'numeric',
+            type: 'integer',
           },
           {
             name: 'created_at',
@@ -88,7 +88,6 @@ export class createOrder1597091415185 implements MigrationInterface {
             referencedColumnNames: ['id'],
             columnNames: ['order_id'],
             onDelete: 'CASCADE',
-            onUpdate: 'CASCADE',
           },
           {
             name: 'OrdersProductsProduct',
@@ -96,7 +95,6 @@ export class createOrder1597091415185 implements MigrationInterface {
             referencedColumnNames: ['id'],
             columnNames: ['product_id'],
             onDelete: 'CASCADE',
-            onUpdate: 'CASCADE',
           },
         ],
       }),

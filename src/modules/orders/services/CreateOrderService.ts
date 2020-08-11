@@ -77,7 +77,16 @@ class CreateOrderService {
       products: serializedProducts,
     });
 
-    await this.productsRepository.updateQuantity(products);
+    // await this.productsRepository.updateQuantity(products);
+
+    const orderedProductsQuantity = products.map(product => ({
+      id: product.id,
+      quantity:
+        productsToOrder.filter(p => p.id === product.id)[0].quantity -
+        product.quantity,
+    }));
+
+    await this.productsRepository.updateQuantity(orderedProductsQuantity);
 
     return order;
   }
